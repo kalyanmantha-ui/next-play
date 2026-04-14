@@ -1,37 +1,20 @@
-# Next Play Games - Kanban Board Assessment
+# Kanban Board Assessment
 
-This project is a fully-functional, beautifully designed Kanban-style task board developed as a full-stack assessment submission. It utilizes modern web technologies to deliver a polished, responsive drag-and-drop experience.
+This is an implementation of a Kanban-style task board built for a full-stack assessment. 
 
-**🔗 [Live Demo on Vercel](https://next-play-alpha.vercel.app)**
+Live Demo: [https://next-play-alpha.vercel.app](https://next-play-alpha.vercel.app)
 
-## 🚀 Tech Stack
-- **Frontend Framework:** Next.js 14+ (App Router) & React
-- **Language:** TypeScript
-- **Styling:** Vanilla CSS Modules (custom Design System)
-- **Drag & Drop Engine:** `@dnd-kit/core`
-- **Backend & Database:** Supabase
-- **Deployment:** Vercel
+## Tech Stack
+- Next.js (App Router)
+- React
+- TypeScript
+- CSS Modules
+- @dnd-kit/core for drag and drop
+- Supabase for backend and authentication
+- Vercel for hosting
 
----
-
-## ⭐️ Key Features
-
-### Core Requirements Fully Implemented:
-1. **Interactive Kanban Board:** 4 strict tracking columns (`To Do`, `In Progress`, `In Review`, `Done`).
-2. **Real-time Drag and Drop:** Optimistic UI updates with `@dnd-kit` ensuring instantly satisfying interactions with snap-to-grid dropping.
-3. **Automated Guest Sessions:** Utilizes Supabase Anonymous Authentication to instantly create a silent user session up on launch, guaranteeing zero login friction.
-4. **Row Level Security (RLS):** Database transactions are tightly restricted. User A strictly cannot view or mutate User B's tasks.
-
-### 🏆 Advanced "Stand Out" Features Completed:
-- **Task Detail Modals:** Click securely into any task to view an expanded description layout.
-- **Task Deletion Hooks:** Fully working destroy hooks from the detail pages.
-- **Due Date Integrations:** Users can optionally flag explicit Due Dates upon creation. Cards intelligently parse these dates—triggering red "Overdue" indicators directly on the Kanban blocks if the date slips.
-- **Priority Indicators:** Dynamic color-coded priority badges (`High`, `Normal`, `Low`).
-
----
-
-## 🛠 Database Schema
-The Supabase PostgreSQL database uses the following standard configuration. 
+## Database Schema
+The Supabase PostgreSQL database uses the following configuration along with Row Level Security (RLS) to ensure users can only access their own data.
 
 ```sql
 CREATE TABLE tasks (
@@ -46,31 +29,38 @@ CREATE TABLE tasks (
     labels TEXT[],
     assignee_id UUID
 );
-
--- RLS Policies strictly enforce (auth.uid() = user_id) for SELECT, INSERT, UPDATE, DELETE requests.
 ```
 
----
+## Setup Instructions
 
-## 💻 Local Developer Setup
-
-1. **Clone the repository:**
+1. Clone the repository:
    ```bash
    git clone https://github.com/kalyanmantha-ui/next-play.git
    cd next-play
    ```
-2. **Install all dependencies:**
+
+2. Install dependencies:
    ```bash
    npm install
    ```
-3. **Setup environment variables:**
-   Create a `.env.local` file in the root directory and map connecting securely to your designated Supabase backend:
+
+3. Setup environment variables:
+   Create a `.env.local` file in the root directory:
    ```env
-   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
-4. **Run the development server:**
+
+4. Start the development server:
    ```bash
    npm run dev
    ```
-   *Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.*
+
+## Features Implemented
+- Kanban board with To Do, In Progress, In Review, and Done columns.
+- Supabase Anonymous Authentication for guest sessions.
+- Task creation with title, description, priority, and due date.
+- Drag and drop functionality to update task status.
+- Task detail modal with descriptions and delete functionality.
+- Due date indicators highlighting overdue tasks.
+- Loading and error states handling in the UI.
