@@ -1,6 +1,6 @@
-# Kanban Board Assessment
+# NextPlay: Kanban task board
 
-This is an implementation of a Kanban-style task board built for a full-stack assessment. 
+A full-stack Kanban task board with anonymous guest sessions and per-user data. Each visitor gets a private board through Supabase authentication, and row-level security keeps their tasks separate.
 
 Live Demo: [https://next-play-alpha.vercel.app](https://next-play-alpha.vercel.app)
 
