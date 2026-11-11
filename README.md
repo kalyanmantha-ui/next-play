@@ -4,6 +4,8 @@ A full-stack Kanban task board with anonymous guest sessions and per-user data. 
 
 Live Demo: [https://next-play-alpha.vercel.app](https://next-play-alpha.vercel.app)
 
+For a guided tour of this project, visit my portfolio: https://kalyan-mantha.vercel.app
+
 ## Tech Stack
 - Next.js (App Router)
 - React
